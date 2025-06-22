@@ -8,10 +8,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tiers;
 import org.jetbrains.annotations.NotNull;
 
-public class LifestealSword extends SwordItem {
+public class ManastealSword extends SwordItem {
     private final int drainAmount;
 
-    public LifestealSword(Tiers tier, int attackDamageModifier, float attackSpeedModifier, Properties properties, int drainAmount) {
+    public ManastealSword(Tiers tier, int attackDamageModifier, float attackSpeedModifier, Properties properties, int drainAmount) {
         super(tier, attackDamageModifier, attackSpeedModifier, properties);
         this.drainAmount = drainAmount;
     }

@@ -12,9 +12,9 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, MPMod.MOD_ID);
 
-    public static final RegistryObject<Item> LIFE_STEAL_SWORD =
-            ITEMS.register("lifesteal_sword", () ->
-                    new LifestealSword(
+    public static final RegistryObject<Item> MANA_STEAL_SWORD =
+            ITEMS.register("manasteal_sword", () ->
+                    new ManastealSword(
                             Tiers.IRON,
                             3,
                             -2.4f,
