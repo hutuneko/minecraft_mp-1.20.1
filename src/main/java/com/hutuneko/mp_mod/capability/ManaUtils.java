@@ -21,13 +21,11 @@ public class ManaUtils {
             m.addMana(amount);
             NetworkHandler.SyncMana pkt = new NetworkHandler.SyncMana(entity.getId(), m.getMana());
             if (entity instanceof ServerPlayer sp) {
-                // プレイヤーなら PLAYER ディストリビューター
                 NetworkHandler.CHANNEL.send(
                         PacketDistributor.PLAYER.with(() -> sp),
                         pkt
                 );
             } else {
-                // それ以外（モブ）は TRACKING_ENTITY
                 NetworkHandler.CHANNEL.send(
                         PacketDistributor.TRACKING_ENTITY.with(() -> entity),
                         pkt

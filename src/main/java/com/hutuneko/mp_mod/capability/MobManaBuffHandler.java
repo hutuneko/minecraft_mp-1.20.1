@@ -19,25 +19,19 @@ public class MobManaBuffHandler {
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
 
-        // Mob以外は無視
         if (!(entity instanceof Mob mobEntity)) return;
 
-        // サーバー側のみ
         if (mobEntity.level().isClientSide) return;
 
-        // 敵対ターゲットがいなければ無視
         LivingEntity target = mobEntity.getTarget();
         if (target == null) return;
         if (!(target instanceof Player)) return;
 
-        // MPが足りていて、まだバフがかかっていなければ
         mobEntity.getCapability(CapabilityMagicP.MANA_CAPABILITY).ifPresent(mana -> {
             int cost = 20;
             if (mana.getMana() >= cost && !mobEntity.hasEffect(MobEffects.DAMAGE_BOOST)) {
-                // MP消費＆同期
                 mana.consumeMana(cost);
                 ManaUtils.consume(mobEntity, cost);
-                // 強化付与
                 mobEntity.addEffect(new MobEffectInstance(
                         MobEffects.DAMAGE_BOOST, 200, 1, false, true
                 ));

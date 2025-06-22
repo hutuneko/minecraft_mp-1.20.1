@@ -15,11 +15,11 @@ public class ModItems {
     public static final RegistryObject<Item> LIFE_STEAL_SWORD =
             ITEMS.register("lifesteal_sword", () ->
                     new LifestealSword(
-                            Tiers.IRON,      // ティア（例：鉄剣相当）
-                            3,               // 追加攻撃力
-                            -2.4f,           // 攻撃速度調整値
+                            Tiers.IRON,
+                            3,
+                            -2.4f,
                             new Item.Properties(),
-                            5                // 毎回吸収する MP 量
+                            5
                     )
             );
 
